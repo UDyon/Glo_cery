@@ -72,7 +72,14 @@ public class PainReportController {
         prompt.append("\n");
 
         // 보고서 요청 마무리
-        prompt.append("위 양식에 맞게 각 종류마다 필요한 재료를 작성해. 띄어쓰기 없이!");
+        prompt.append("위 양식에 맞게 각 종류마다 필요한 재료를 작성해. 꼭 다른 사족 없이 양식에 맞춰서만 해야 해.\n");
+        prompt.append("아래는 출력 예시야.\n");
+        prompt.append("**육류**없음\n");
+        prompt.append("**해산물**고등어\n");
+        prompt.append("**채소**감자, 무\n");
+        prompt.append(" **조미료**고추장, 고추가루\n");
+        prompt.append("**과일**없음\n");
+        prompt.append("**기타**된장, 참기름\n");
 
         return prompt.toString();
     }

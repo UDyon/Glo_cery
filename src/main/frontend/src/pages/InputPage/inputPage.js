@@ -7,7 +7,7 @@ import {useNavigate} from "react-router-dom";
 export default function InputPage(){
 
     const navigate = useNavigate();
-    const [menu, setMenu] = useState('고등어조림, 감자탕, 김치찌개');
+    const [menu, setMenu] = useState(['된장찌개', '고등어조림', '감자탕']);
     const [loading, setLoading] = useState(false); // 로딩 상태
     const [reportContent, setReportContent] = useState(""); // 보고서 내용 저장
 
@@ -16,13 +16,14 @@ export default function InputPage(){
     // 보고서 생성
     const onClickSubmit = async () => {
         setLoading(true);
-
         localStorage.setItem('menu','');
+
+        const menuString = menu.join(', ');
 
         try {
             const response = await axios.post(
                 `/api/reports`, // Spring Boot API 엔드포인트
-                {menu},
+                {menuString},
                 {}
             );
 
