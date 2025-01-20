@@ -10,14 +10,14 @@ export const Wrapper = styled.div`
     flex-direction: column;
 `
 export const StartButton = styled.div`
-    width: 180px;
-    height: 75px;
+    width: 130px;
+    height: 50px;
     cursor: pointer;
     background-color: white;
     border: 5px solid #F09AF1;
     box-shadow: 5px 6px 0 #F09AF1;
     border-radius: 5em;
-    font-size: 27px;
+    font-size: 23px;
     font-weight: bold;
     color: #F09AF1;
     display: flex;

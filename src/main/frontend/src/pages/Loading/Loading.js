@@ -4,6 +4,7 @@ import './Loading.css'; // 스타일 파일 불러오기
 
 // 소리 파일 경로
 import successSound from './결제.mp3';
+import {Reset} from "styled-reset";
 
 const Loading = () => {
     const [loadingMessage, setLoadingMessage] = useState('당근 찾는 중...');
@@ -45,9 +46,13 @@ const Loading = () => {
     }, [navigate]);
 
     return (
-        <div className="loading-container">
-            {loadingMessage}
-        </div>
+        <>
+            <Reset/>
+            <div className="loading-container">
+                {loadingMessage}
+            </div>
+        </>
+
     );
 };
 

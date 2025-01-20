@@ -8,7 +8,7 @@ export default function Main() {
     const navigate = useNavigate();
 
     const onClickStartButton = () => {
-        navigate('/inputPage');
+        navigate('/first');
     }
     const [bounceDiv, setBounceDiv] = useState(false);
     const [bounceButton, setBounceButton] = useState(false);
@@ -26,7 +26,7 @@ export default function Main() {
             <Reset />
             <Wrapper>
                 <BouncingDiv animate={bounceDiv}>
-                    <svg width="850" height="550" viewBox="0 0 1124 602" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="650" height="400" viewBox="0 0 1124 602" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="1124" height="602" fill="url(#pattern0_88_4)"/>
                         <defs>
                             <pattern id="pattern0_88_4" patternContentUnits="objectBoundingBox" width="1" height="1">
