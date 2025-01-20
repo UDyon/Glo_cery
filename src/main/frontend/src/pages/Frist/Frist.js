@@ -20,6 +20,15 @@ const Frist = () => {
         Saturday: false,
         Sunday: false,
     });
+    const [savedDays, setSavedDays] = useState({
+        Monday: false,
+        Tuesday: false,
+        Wednesday: false,
+        Thursday: false,
+        Friday: false,
+        Saturday: false,
+        Sunday: false,
+    });
 
     const navigate = useNavigate(); // 페이지 이동을 위한 useNavigate
 
@@ -34,11 +43,19 @@ const Frist = () => {
         });
     };
 
-    const onClickSaveButton = () => {
+    const saveDay = async () => {
+        await setSavedDays((prevDays) => ({
+            ...prevDays, // 이전 상태 복사
+            [selectedDay]: true, // 특정 day의 값을 true로 설정
+        }));
+    }
+    const onClickSaveButton = (selectedDay) => {
         setMenu((prevMenu) => [...prevMenu, menuValue1, menuValue2, menuValue3]);
         setMenuValue1('');
         setMenuValue2('');
         setMenuValue3('');
+
+        saveDay();
     }
 
     const handleEndClick = () => {
@@ -60,7 +77,11 @@ const Frist = () => {
                             >
                                 {day}
                             </button>
-                            <div className="box"></div>
+                            {savedDays[day] ? (
+                                <div className="box">&nbsp;V</div>
+                            ) : (
+                                <div className="box"></div>
+                            )}
                         </div>
                     ))}
                 </div>
@@ -90,7 +111,7 @@ const Frist = () => {
                             <InputMenu onChange={(event)=> setMenuValue3(event.target.value)}
                                        value={menuValue3}></InputMenu>
                         </div>
-                        <SaveButton onClick={onClickSaveButton}>save</SaveButton>
+                        <SaveButton onClick={()=>onClickSaveButton(selectedDay)}>save</SaveButton>
                     </div>
                 ) : (
                     <div className="content-box">
