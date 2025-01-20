@@ -28,7 +28,7 @@ export const Section = styled.div`
 `;
 
 export const Title = styled.h1`
-    font-size: 48px;
+    font-size: 40px;
     font-weight: bold;
     margin-bottom: 15px;
     text-align: center;
@@ -39,7 +39,7 @@ export const LeftItemList = styled.div`
 `;
 
 export const LeftItem = styled.div`
-    font-size: 36px;
+    font-size: 28px;
     margin: 10px 0;
     display: flex;
     align-items: center;
@@ -50,10 +50,17 @@ export const RightItemList = styled.div`
 `;
 
 export const RightItem = styled.div`
-    font-size: 40px; /* 오른쪽 글씨 크기 더 큼 */
+    font-size: 30px; /
     margin: 12px 0;
     display: flex;
     align-items: center;
+`;
+
+export const StyledCheckbox = styled.input.attrs({ type: 'checkbox' })`
+    width: 26px;
+    height: 26px;
+    margin-right: 12px;
+    cursor: pointer;
 `;
 
 export const SendButton = styled.button`
@@ -61,7 +68,7 @@ export const SendButton = styled.button`
     width: 100%;
     background-color: #f5aef5;
     color: black;
-    font-size: 32px;
+    font-size: 25px;
     cursor: pointer;
 
     &:hover {
