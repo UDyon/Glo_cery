@@ -17,14 +17,41 @@ import {
 } from './style';
 import { Reset } from 'styled-reset';
 
-const exampleData = {
-    meat: [],
-    seafood : ["고등어"],
-    vegetable : ["감자", "무", "양파", "청양고추", "대파", "양념고추"],
-    seasoning : ["고춧가루", "고추장", "고추가루", "된장"],
-    fruit: [],
-    others: ["생강", "다진마늘", "청주"],
+// 한글 키와 영문 키 매핑
+const categoryMap = {
+    육류: "meat",
+    해산물: "seafood",
+    채소: "vegetable",
+    조미료: "seasoning",
+    과일: "fruit",
+    기타: "others",
 };
+
+// 한글 키 형식의 데이터를 영문 키 형식으로 변환
+const transformData = (data) => {
+    const transformed = {};
+    for (const [key, value] of Object.entries(data)) {
+        const englishKey = categoryMap[key];
+        if (englishKey) {
+            transformed[englishKey] = value;
+        }
+    }
+    return transformed;
+};
+
+// 새롭게 들어온 데이터 형식
+const originalData = {
+    육류: [],
+    해산물: ["고등어"],
+    채소: ["감자", "무", "양파", "청양고추", "대파", "양념고추"],
+    조미료: ["고춧가루", "고추장", "고추가루", "된장"],
+    과일: [],
+    기타: ["생강", "다진마늘", "청주"],
+};
+
+// 변환된 데이터
+const exampleData = transformData(originalData);
+
 
 const categoryOrder = ["vegetable", "meat", "seafood", "seasoning", "fruit", "others"];
 
