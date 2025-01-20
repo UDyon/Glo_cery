@@ -1,0 +1,8 @@
+{
+  "access_token": "ndUcq2I8moKGh1ZEmMnm5biSAmGI_2LhAAAAAQorDKcAAAGUgzmfIfsTCyemC-i_",
+  "token_type": "bearer",
+  "refresh_token": "iPJhXoEFuxsRDt53fHBb9_45AV6SPxG-AAAAAgorDKcAAAGUgzmfH_sTCyemC-i_",
+  "expires_in": 21599,
+  "scope": "talk_message",
+  "refresh_token_expires_in": 5183999
+}

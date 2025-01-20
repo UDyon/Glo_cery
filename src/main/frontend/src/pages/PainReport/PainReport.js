@@ -43,6 +43,8 @@ const PainReport = () => {
         "오른발": "right-foot",
     };
 
+    const menuList = "월요일 아침:고등어구이, 점심:콩나물무침, 저녁:김치찌개";
+    
     console.log('partNamesInEng[region]:',partNamesInEng[region]);
 
 
@@ -71,8 +73,8 @@ const PainReport = () => {
 
         try {
             const response = await axios.post(
-                `/api/reports/${region}`, // Spring Boot API 엔드포인트
-                {},
+                `/api/reports`, // Spring Boot API 엔드포인트
+                {menuList},
                 {
                     headers: {
                         Authorization: `Bearer ${token}`, // JWT 토큰을 헤더에 추가
@@ -91,26 +93,6 @@ const PainReport = () => {
         }
     };
 
-    // PDF 다운로드
-    const downloadPdf = () => {
-        const element = reportRef.current; // PDF로 변환할 HTML 요소
-        const options = {
-            margin: [10, 10, 10, 10], // PDF 여백 제거
-            filename: "pain_report.pdf",
-            image: { type: "jpeg", quality: 1 }, // 이미지 품질 최대화
-            html2canvas: {
-                scale: 2, // HTML 캔버스 스케일을 높여 고해상도로 렌더링
-                useCORS: true, // CORS 이미지 지원
-            },
-            jsPDF: {
-                unit: "mm",
-                format: "a4", // A4 크기로 설정
-                orientation: "portrait", // 세로 방향
-            },
-        };
-        html2pdf().set(options).from(reportRef.current).save();
-    };
-
     return (
         <>
             <Reset />
@@ -124,16 +106,15 @@ const PainReport = () => {
                     <>
                         <ReportContent ref={reportRef}>
                             {/* BodySvg 추가 */}
-                            <BodyWrapper>
-                                <BodySvg
-                                    selected={partNamesInEng[region]}
-                                    style={{ width: "200px", height: "400px" }}
-                                />
-                            </BodyWrapper>
+                            {/*<BodyWrapper>*/}
+                            {/*    <BodySvg*/}
+                            {/*        selected={partNamesInEng[region]}*/}
+                            {/*        style={{ width: "200px", height: "400px" }}*/}
+                            {/*    />*/}
+                            {/*</BodyWrapper>*/}
                             {/* 보고서 내용 */}
                             <div dangerouslySetInnerHTML={{ __html: reportContent }} />
                         </ReportContent>
-                        <PDFDownload onClick={downloadPdf}>PDF 다운로드</PDFDownload>
                     </>
                 )}
             </Container>

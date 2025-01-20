@@ -13,13 +13,18 @@ import PainReport from "./pages/PainReport/PainReport";
 import PainList from "./pages/PainList/painlist";
 import Edit from "./pages/Community/edit";
 import PrivacyAgreement from "./pages/SignUp/privacyAgreement";
-
+import SendToKakao from "./pages/SendToKakao/kakao";
+import InputPage from "./pages/InputPage/inputPage";
+import OutputPage from "./pages/OutputPage/outputPage";
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Main />} />
+                <Route path="/inputPage" element={<InputPage />} />
+                <Route path="/outputPage" element={<OutputPage />} />
+                <Route path="/kakao" element={<SendToKakao />} />
                 <Route path="/chanho" element={<Chanho />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/privacyAgreement" element={<PrivacyAgreement />} />
