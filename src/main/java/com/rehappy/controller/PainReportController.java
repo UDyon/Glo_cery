@@ -54,17 +54,21 @@ public class PainReportController {
 
         // 보고서 양식 지정
         prompt.append("메뉴:").append(menuList).append("\n");
-        prompt.append("입력한 모든 메뉴를 조리하기 위해 사야할 재료를 알려줘. 재료의 종류(야채, 육류 등)를 구분하여 출력해줘.\n");
+        prompt.append("입력한 모든 메뉴를 조리하기 위해 사야할 재료를 알려줘. 재료의 종류를 구분하여 출력해줘.\n");
         prompt.append("장보러 갈 때 살 재료를 알고 싶은 것이기 때문에, 각각의 메뉴마다 구분하여 필요한 재료를 출력하는 것이 아닌 그냥 필요한 모든 재료를 알려줘.\n");
-        prompt.append("다음은 원하는 출력 형태의 양식이야. 반드시 이 양식을 준수하여 띄어쓰기 없이 콤마로 구분하여 필요한 모든 재료를 작성해:\n");
-        prompt.append("**[재료의 종류]**");
-        prompt.append("[필요한 모든 재료]\n");
-        prompt.append("**[재료의 종류]**");
-        prompt.append("[필요한 모든 재료]\n");
-        prompt.append("**[재료의 종류]**");
-        prompt.append("[필요한 모든 재료]\n");
-        prompt.append("**[재료의 종류]**");
-        prompt.append("[필요한 모든 재료]\n");
+        prompt.append("다음은 원하는 출력 형태의 양식이야. 반드시 이 양식을 준수하여 띄어쓰기 없이 콤마로 구분하여 필요한 모든 재료를 작성해.:\n");
+        prompt.append("**육류**");
+        prompt.append("필요한 모든 재료\n");
+        prompt.append("**해산물**");
+        prompt.append("필요한 모든 재료\n");
+        prompt.append("**채소**");
+        prompt.append("필요한 모든 재료\n");
+        prompt.append("**조미료**");
+        prompt.append("필요한 모든 재료\n");
+        prompt.append("**과일**");
+        prompt.append("필요한 모든 재료\n");
+        prompt.append("**기타**");
+        prompt.append("필요한 모든 재료\n");
         prompt.append("\n");
 
         // 보고서 요청 마무리

@@ -11,22 +11,13 @@ export default function InputPage(){
     const [loading, setLoading] = useState(false); // 로딩 상태
     const [reportContent, setReportContent] = useState(""); // 보고서 내용 저장
 
-    const formatContent = (content) => {
-        const formattedContent = content
-            .replace(
-                /\*\*(.*?)\*\*/g, // **으로 감싸진 텍스트를 bold와 font-size 스타일 적용
-                "<span style='font-weight: bold; font-size: 20px;'>$1</span>"
-            )
-            .replace(
-                /^- /gm, // -로 시작하는 문장의 앞에 공백 추가
-                "    - "
-            );
-        return formattedContent;
-    };
+
 
     // 보고서 생성
     const onClickSubmit = async () => {
         setLoading(true);
+
+        localStorage.setItem('menu','');
 
         try {
             const response = await axios.post(
@@ -36,9 +27,9 @@ export default function InputPage(){
             );
 
             // 보고서 내용 저장
-            setReportContent(formatContent(response.data)); // 포맷팅된 내용을 저장
-            console.log("보고서 내용:", response.data);
-            localStorage.setItem('menu', formatContent(response.data));
+            setReportContent(response.data); // 포맷팅된 내용을 저장
+            console.log("내용:", response.data);
+            localStorage.setItem('menu', response.data);
             navigate('/outputPage');
         } catch (error) {
             console.error("보고서 생성 중 오류 발생:", error);
@@ -50,7 +41,6 @@ export default function InputPage(){
     };
     return(
         <>
-            <Reset/>
             <h1>input</h1>
             <button onClick={onClickSubmit}>
                 End
