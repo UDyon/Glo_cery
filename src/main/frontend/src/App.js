@@ -14,6 +14,8 @@ import PainList from "./pages/PainList/painlist";
 import Edit from "./pages/Community/edit";
 import PrivacyAgreement from "./pages/SignUp/privacyAgreement";
 import Page2 from "./pages/Page2/page2";
+import OutputPage from "./pages/OutputPage/outputPage";
+import InputPage from "./pages/InputPage/inputPage";
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Main />} />
+                <Route path="/inputPage" element={<InputPage />} />
+                <Route path="/outputPage" element={<OutputPage />} />
                 <Route path="/page2" element={<Page2 />} />
                 <Route path="/chanho" element={<Chanho />} />
                 <Route path="/signup" element={<Signup />} />
