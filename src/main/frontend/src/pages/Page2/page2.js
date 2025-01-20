@@ -13,6 +13,7 @@ import {
     ArrowButton,
     SendButton,
     Divider,
+    StyledCheckbox,
 } from "./style";
 import { Reset } from "styled-reset";
 
@@ -48,6 +49,15 @@ const Page2 = () => {
         과일: [],
         기타: [],
     });
+
+    const [checkedItems, setCheckedItems] = useState({});
+
+    const handleCheckboxChange = (item) => {
+        setCheckedItems((prev) => ({
+            ...prev,
+            [item]: !prev[item],
+        }));
+    };
 
     // 문장 깔끔하게 format
     const formatContent = (menu) => {
@@ -130,14 +140,23 @@ const Page2 = () => {
                             {currentCategory.charAt(0).toUpperCase() +
                                 currentCategory.slice(1)}
                         </Title>
+                        <ArrowButton left onClick={handlePreviousCategory}>&lt;</ArrowButton>
                         <RightItemList>
                             {currentItems.map((item, index) => (
-                                <RightItem key={index}>
-                                    <input type="checkbox" /> {item}
+                                <RightItem
+                                    key={index}
+                                    style={{
+                                        textDecoration: checkedItems[item] ? "line-through" : "none",
+                                    }}
+                                >
+                                    <StyledCheckbox
+                                        checked={checkedItems[item] || false}
+                                        onChange={() => handleCheckboxChange(item)}
+                                    />
+                                    {item}
                                 </RightItem>
                             ))}
                         </RightItemList>
-                        <ArrowButton left onClick={handlePreviousCategory}>&lt;</ArrowButton>
                         <ArrowButton onClick={handleNextCategory}>&gt;</ArrowButton>
                     </SvgBackground>
                 </RightPanel>
