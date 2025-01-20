@@ -13,7 +13,6 @@ import PainReport from "./pages/PainReport/PainReport";
 import PainList from "./pages/PainList/painlist";
 import Edit from "./pages/Community/edit";
 import PrivacyAgreement from "./pages/SignUp/privacyAgreement";
-import Page2 from "./pages/Page2/page2";
 
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Main />} />
-                <Route path="/page2" element={<Page2 />} />
                 <Route path="/chanho" element={<Chanho />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/privacyAgreement" element={<PrivacyAgreement />} />
