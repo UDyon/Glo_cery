@@ -5,10 +5,22 @@ import './Loading.css'; // 스타일 파일 불러오기
 // 소리 파일 경로
 import successSound from './결제.mp3';
 import {Reset} from "styled-reset";
+import axios from "axios";
 
 const Loading = () => {
+    const [menu, setMenu] = useState(() => {
+        const savedMenu = localStorage.getItem("menu");
+        // 저장된 값이 없거나 유효한 JSON이 아닐 경우 빈 배열로 초기화
+        try {
+            return savedMenu ? JSON.parse(savedMenu) : [];
+        } catch {
+            return [];
+        }
+    });
     const [loadingMessage, setLoadingMessage] = useState('당근 찾는 중...');
     const navigate = useNavigate();
+
+    const [reportContent, setReportContent] = useState(""); // 보고서 내용 저장
 
     const messages = [
         '당근 찾는 중...',
@@ -16,6 +28,28 @@ const Loading = () => {
         '생선 포장하는 중...',
         '완료!'
     ];
+
+    const onClickSubmit = async () => {
+        localStorage.setItem('menu','');
+
+        const menuString = menu.join(', ');
+
+        try {
+            const response = await axios.post(
+                `/api/reports`, // Spring Boot API 엔드포인트
+                {menuString},
+                {}
+            );
+
+            // 보고서 내용 저장
+            setReportContent(response.data); // 포맷팅된 내용을 저장
+            console.log("내용:", response.data);
+            localStorage.setItem('menu', response.data);
+        } catch (error) {
+            console.error("생성 중 오류 발생:", error);
+            alert("생성하는 중 오류가 발생했습니다.");
+        }
+    };
 
     useEffect(() => {
         let currentIndex = 0;
@@ -44,6 +78,10 @@ const Loading = () => {
 
         return () => clearInterval(interval);
     }, [navigate]);
+
+    useEffect(() => {
+        onClickSubmit();
+    }, [menu]);
 
     return (
         <>

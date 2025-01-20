@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // useNavigate 사용
 import './Frist.css';
+import {InputMenu, SaveButton} from "./style";
 
 const Frist = () => {
+
+    const [menu, setMenu] = useState([]);
+    const [menuValue1, setMenuValue1] = useState('');
+    const [menuValue2, setMenuValue2] = useState('');
+    const [menuValue3, setMenuValue3] = useState('');
+
     const [selectedDay, setSelectedDay] = useState('');
     const [joinedDays, setJoinedDays] = useState({
         Monday: false,
@@ -27,7 +34,15 @@ const Frist = () => {
         });
     };
 
+    const onClickSaveButton = () => {
+        setMenu((prevMenu) => [...prevMenu, menuValue1, menuValue2, menuValue3]);
+        setMenuValue1('');
+        setMenuValue2('');
+        setMenuValue3('');
+    }
+
     const handleEndClick = () => {
+        localStorage.setItem("menu", JSON.stringify(menu));
         navigate('/loading'); // 로딩 페이지로 이동
     };
 
@@ -62,13 +77,20 @@ const Frist = () => {
                         <h2>{`${selectedDay}`}</h2>
                         <div className="sidesidebar1">
                             <div className="sidesidebar-font">Morning</div>
+                            <InputMenu onChange={(event)=> setMenuValue1(event.target.value)}
+                                       value={menuValue1}></InputMenu>
                         </div>
                         <div className="sidesidebar2">
                             <div className="sidesidebar-font">lunch</div>
+                            <InputMenu onChange={(event)=> setMenuValue2(event.target.value)}
+                                       value={menuValue2}></InputMenu>
                         </div>
                         <div className="sidesidebar3">
                             <div className="sidesidebar-font">evening</div>
+                            <InputMenu onChange={(event)=> setMenuValue3(event.target.value)}
+                                       value={menuValue3}></InputMenu>
                         </div>
+                        <SaveButton onClick={onClickSaveButton}>save</SaveButton>
                     </div>
                 ) : (
                     <div className="content-box">
