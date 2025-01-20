@@ -1,51 +1,32 @@
 import React, { useEffect, useState } from "react";
+import { Reset } from "styled-reset";
+import Cookies from "js-cookie";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+const formattedMenu = {
+    육류: [],
+    해산물: [],
+    채소: [],
+    조미료: [],
+    과일: [],
+    기타: [],
+};
 
 export default function OutputPage() {
-    const [formattedMenu, setFormattedMenu] = useState({
-        육류: [],
-        해산물: [],
-        채소: [],
-        조미료: [],
-        과일: [],
-        기타: [],
-    });
-
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false); // 로딩 상태
+    const [reportContent, setReportContent] = useState(""); // 보고서 내용 저장
     const menu = localStorage.getItem("menu"); // 로컬 스토리지에서 메뉴 데이터 가져오기
 
     useEffect(() => {
         if (menu) {
             // menu가 존재하는 경우에만 함수 호출
-            const newFormattedMenu = {
-                육류: [],
-                해산물: [],
-                채소: [],
-                조미료: [],
-                과일: [],
-                기타: [],
-            };
-            formatContent(menu, newFormattedMenu);
-            setFormattedMenu(newFormattedMenu); // 상태 업데이트
-            console.log(newFormattedMenu);
+            formatContent(menu, formattedMenu);
         }
     }, [menu]);
 
-    const formatContent = (menu, formattedMenu) => {
-        // 메뉴 데이터를 각 카테고리에 맞게 분리하여 formattedMenu에 추가
-        const lines = menu.split("\n"); // menu가 문자열로 분리 가능해야 함
-        lines.forEach((line) => {
-            const match = line.match(/\*\*(.*?)\*\*\s*(.*)/); // **카테고리**와 내용을 매칭
-            if (match) {
-                const category = match[1]; // 카테고리명
-                const items = match[2]
-                    .split(",")
-                    .map((item) => item.trim()) // 쉼표로 구분된 항목을 배열로 분리
-                    .filter((item) => item !== "없음"); // '없음'은 제외
-                if (formattedMenu[category]) {
-                    formattedMenu[category] = [...formattedMenu[category], ...items];
-                }
-            }
-        });
-    };
+
 
     return (
         <>

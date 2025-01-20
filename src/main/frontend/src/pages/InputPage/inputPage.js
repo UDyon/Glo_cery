@@ -31,7 +31,7 @@ export default function InputPage(){
             setReportContent(response.data); // 포맷팅된 내용을 저장
             console.log("내용:", response.data);
             localStorage.setItem('menu', response.data);
-            navigate('/outputPage');
+            navigate('/page2');
         } catch (error) {
             console.error("보고서 생성 중 오류 발생:", error);
             alert("보고서를 생성하는 중 오류가 발생했습니다.");
