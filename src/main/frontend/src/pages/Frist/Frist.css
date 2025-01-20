@@ -1,0 +1,191 @@
+/* Frist.css */
+.container {
+    display: flex;
+    height: 100vh;
+    background-color: white; /* 전체 배경 색상 */
+}
+
+.sidebar {
+    background-color: #9CC3F2; /* 왼쪽 배경색 */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 400px;
+}
+
+.sidebar h1 {
+    text-align: left;
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #000 !important;
+    padding-bottom: 10px; /* 텍스트와 줄 사이의 간격 */
+    border-bottom: 1px solid #000 ;
+}
+
+.day-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.day-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #000;
+    padding: 5px;
+    background-color: #9CC3F2;
+}
+
+.day-item .box {
+    width: 20px; /* 네모 박스 크기 */
+    height: 20px;
+    border: 1px solid #000; /* 네모 박스 테두리 */
+    background-color: #9CC3F2; /* 기본 배경색 */
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.day-item .box.selected {
+    background-color: #4CAF50; /* 선택된 상태 배경색 */
+    color: #fff; /* 선택된 상태 텍스트 색상 */
+    font-weight: bold;
+}
+
+
+.day-item button {
+    flex: 1;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.day-item input {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #000;
+}
+
+.total-section {
+    text-align: left;
+}
+
+.total-section h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+    padding-bottom: 10px; /* 텍스트와 줄 사이의 간격 */
+    border-bottom: 1px solid #000; /* 검은색 선 추가 */
+}
+
+.total-section button {
+    padding: 10px 185px;
+    font-size: 16px;
+    background-color: #9CC3F2;
+    border: 1px solid #000 !important;
+    cursor: pointer;
+}
+
+.main-content {
+    width: 70%; /* 오른쪽 영역 너비 */
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    background-color: white; /* 오른쪽 전체 배경 */
+    padding: 20px; /* 내용과 가장자리 간격 */
+}
+
+.main-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.meal-input {
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #000;
+}
+
+.content-box {
+    width: 800px; /* 박스의 너비 */
+    height: 90%; /* 박스의 높이 */
+    background-color: #E0EEFF; /* 하늘색 배경 */
+    display: flex;
+    justify-content: center; /* 텍스트 가로 중앙 정렬 */
+    align-items: center; /* 텍스트 세로 중앙 정렬 */
+    font-family: Arial, sans-serif; /* 텍스트 폰트 */
+    font-size: 50px; /* 텍스트 크기 */
+    color: #000; /* 텍스트 색상 */
+    margin-left: 10px;
+}
+
+.content-box1 {
+    width: 800px; /* 박스의 너비 */
+    height: 90%; /* 박스의 높이 */
+    background-color: #E0EEFF; /* 하늘색 배경 */
+    display: flex;
+    justify-content: center; /* 텍스트 가로 중앙 정렬 */
+    font-family: Arial, sans-serif; /* 텍스트 폰트 */
+    font-size: 50px; /* 텍스트 크기 */
+    color: #000; /* 텍스트 색상 */
+    margin-left: 10px;
+}
+
+.sidesidebar1, .sidesidebar2, .sidesidebar3 {
+    display: flex;
+    flex-direction: column; /* 세로 방향 정렬 */
+    align-items: center; /* 가로 중앙 정렬 */
+    background-color: #FAD8FB;
+    padding: 10px;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    z-index: 10; /* 다른 요소 위에 표시 */
+}
+
+
+/* 위치 조정 */
+.sidesidebar1 {
+    top: 100px;
+    left: 490px;
+}
+
+.sidesidebar2 {
+    top: 130px;
+    left: 1000px;
+}
+
+.sidesidebar3 {
+    top: 250px;
+    left: 740px;
+}
+
+.day-button {
+    font-weight: normal; /* 기본 글씨 */
+    font-size: 16px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 5px;
+}
+
+.day-button.selected {
+    font-weight: bold; /* 클릭된 요일 글씨를 볼드 처리 */
+    color: #000; /* 강조 색상 (필요 시 추가) */
+}
+
+.sidesidebar-font {
+    font-family: Arial, sans-serif; /* 텍스트 폰트 */
+    font-size: 25px; /* 텍스트 크기 */
+    line-height: 25px; /* 줄 높이를 글자 크기와 동일하게 */
+    border-bottom: 1px solid #000; /* 검은색 선 */
+    margin: 0; /* 여백 제거 */
+    padding: 0; /* 패딩 제거 */
+    text-align: center; /* 가로 중앙 정렬 */
+}
+
