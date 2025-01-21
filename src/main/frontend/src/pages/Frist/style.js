@@ -23,3 +23,6 @@ export const SaveButton = styled.div`
     align-items: center;
     border-radius: 20px;
 `
+export const DaysH2 = styled.h2`
+    text-underline: ${(props) => props ? ('1px solid black') : ('none')};
+`

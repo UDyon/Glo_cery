@@ -47,6 +47,18 @@ export const LeftItem = styled.div`
 
 export const RightItemList = styled.div`
     margin: 20px 0;
+    width: 500px;
+    height: 350px;
+    //background-color: #8d3535;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    
+    // 스크롤바 숨기기
+    -ms-overflow-style: none;  // IE, Edge 
+    scrollbar-width: none;  // Firefox
+    &::-webkit-scrollbar {
+        display: none;  // Chrome, Safari, Opera
+    }
 `;
 
 export const RightItem = styled.div`

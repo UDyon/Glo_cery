@@ -111,6 +111,10 @@ const Page2 = () => {
     const currentCategory = categoryOrder[currentCategoryIndex];
     const currentItems = exampleData[currentCategory];
 
+    const onClickSendButton = () => {
+        alert('카카오톡 전송 완료!');
+    }
+
     return (
         <>
             <Reset />
@@ -131,7 +135,7 @@ const Page2 = () => {
                     <Section>
                         <Title>Send</Title>
                         <Divider />
-                        <SendButton>카카오톡 전송하기</SendButton>
+                        <SendButton onClick={onClickSendButton}>카카오톡 전송하기</SendButton>
                     </Section>
                 </LeftPanel>
                 <RightPanel>
