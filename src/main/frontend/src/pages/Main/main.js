@@ -1,5 +1,5 @@
 import {Reset} from "styled-reset";
-import {BouncingDiv, StartButton, Wrapper} from "./style";
+import {BouncingDiv, ButtonWrapper, RecommendButton, StartButton, Wrapper} from "./style";
 import {useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 
@@ -9,6 +9,9 @@ export default function Main() {
 
     const onClickStartButton = () => {
         navigate('/first');
+    }
+    const onClickRecommendButton = () => {
+        navigate('/menuRecommend');
     }
     const [bounceDiv, setBounceDiv] = useState(false);
     const [bounceButton, setBounceButton] = useState(false);
@@ -37,8 +40,11 @@ export default function Main() {
                         </defs>
                     </svg>
                 </BouncingDiv>
-                <StartButton animate={bounceButton} onClick={onClickStartButton}>시작하기</StartButton>
+                <ButtonWrapper>
+                    <StartButton animate={bounceButton} onClick={onClickStartButton}>시작하기</StartButton>
+                    <RecommendButton style={{width: '200px'}} animate={bounceButton} onClick={onClickRecommendButton}>메뉴 추천받기</RecommendButton>
 
+                </ButtonWrapper>
             </Wrapper>
         </>
     );

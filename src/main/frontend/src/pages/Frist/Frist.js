@@ -102,12 +102,12 @@ const Frist = () => {
                                        value={menuValue1}></InputMenu>
                         </div>
                         <div className="sidesidebar2">
-                            <div className="sidesidebar-font">lunch</div>
+                            <div className="sidesidebar-font">Lunch</div>
                             <InputMenu onChange={(event)=> setMenuValue2(event.target.value)}
                                        value={menuValue2}></InputMenu>
                         </div>
                         <div className="sidesidebar3">
-                            <div className="sidesidebar-font">evening</div>
+                            <div className="sidesidebar-font">Evening</div>
                             <InputMenu onChange={(event)=> setMenuValue3(event.target.value)}
                                        value={menuValue3}></InputMenu>
                         </div>

@@ -5,7 +5,7 @@ export const InputMenu = styled.textarea`
     height: calc(100% - 20px);
     margin-top: 10px;
     padding: 10px;
-    background-color: #FAD8FB;
+    background-color: rgba(0, 0, 0, 0);
     border: none;
     resize: none;
 `
